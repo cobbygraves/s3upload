@@ -1,19 +1,16 @@
 const GalleryModel = require("../models/gallery");
 const uuid = require("uuid");
 
+//logic to add gallery to the database
 const addGallery = (req, res) => {
-  console.log(req.file);
-
-  res.json({ message: "image added succefully" });
-  //logic to add gallery to the database
-  //   const gallery = { id: uuid.v4(), ...req.body };
-  //   const galleryDocument = new GalleryModel(gallery);
-  //   galleryDocument.save((err) => {
-  //     if (err) {
-  //       return next(new Error(`Error Message: ${err}`));
-  //     }
-  //     res.status(200).json({ message: "successful" });
-  //   });
+  const gallery = { id: uuid.v4(), image: req.file.location };
+  const galleryDocument = new GalleryModel(gallery);
+  galleryDocument.save((err) => {
+    if (err) {
+      return next(new Error(`Error Message: ${err}`));
+    }
+    res.status(200).json({ message: "successful" });
+  });
 };
 
 //logic to read gallery from database

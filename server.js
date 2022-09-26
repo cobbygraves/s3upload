@@ -8,7 +8,7 @@ dotenv.config();
 
 const server = express();
 
-const galleryRoute = require("./Routes/gallery");
+const galleryRoute = require("./routes/gallery");
 
 server.use(express.json({ limit: "200mb", extended: true }));
 server.use(express.urlencoded({ limit: "200mb", extended: true }));
