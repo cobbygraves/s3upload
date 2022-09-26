@@ -2,9 +2,9 @@ const express = require("express");
 const { addGallery, readGallery } = require("../controllers/gallery");
 const upload = require("../middleware/upload");
 
-const galleryRoute = express.Router();
+const galleryRouter = express.Router();
 
-galleryRoute.post("/gallery", upload.single("image"), addGallery);
-galleryRoute.get("/gallery", readGallery);
+galleryRouter.post("/gallery", upload.single("image"), addGallery);
+galleryRouter.get("/gallery", readGallery);
 
-module.exports = galleryRoute;
+module.exports = galleryRouter;
