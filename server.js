@@ -3,12 +3,11 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const path = require("path");
 const dotenv = require("dotenv");
-
 dotenv.config();
 
-const server = express();
-
 const galleryRoute = require("./routes/gallery");
+
+const server = express();
 
 server.use(express.json({ limit: "200mb", extended: true }));
 server.use(express.urlencoded({ limit: "200mb", extended: true }));
