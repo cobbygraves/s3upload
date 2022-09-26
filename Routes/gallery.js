@@ -4,7 +4,7 @@ const upload = require("../middleware/upload");
 
 const galleryRouter = express.Router();
 
-galleryRouter.post("/gallery", upload.single("image"), addGallery);
-galleryRouter.get("/gallery", readGallery);
+galleryRouter.post("/", upload.single("image"), addGallery);
+galleryRouter.get("/", readGallery);
 
 module.exports = galleryRouter;
