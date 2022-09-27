@@ -5,7 +5,7 @@ const path = require("path");
 const dotenv = require("dotenv");
 dotenv.config();
 
-const galleryRoute = require("./routes/gallery");
+// const galleryRoute = require("./routes/gallery");
 
 const server = express();
 
