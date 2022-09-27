@@ -5,7 +5,7 @@ const path = require("path");
 const dotenv = require("dotenv");
 dotenv.config();
 
-// const galleryRoute = require("./routes/gallery");
+const galleryRoute = require("./routes/gallery");
 
 const server = express();
 
@@ -15,7 +15,7 @@ server.use(cors());
 
 //route goes here
 
-// server.use("/gallery", galleryRoute);
+server.use("/gallery", galleryRoute);
 
 //server listening at port 5000
 
