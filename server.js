@@ -3,6 +3,8 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const path = require("path");
 const dotenv = require("dotenv");
+const AWS = require("aws-sdk");
+
 dotenv.config();
 
 const galleryRoute = require("./routes/gallery");
@@ -16,6 +18,18 @@ server.use(cors());
 //route goes here
 
 server.use("/gallery", galleryRoute);
+
+server.get("/presigned-url/:key", (req, res) => {
+  const s3 = new AWS.S3();
+  const params = { Bucket: process.env.AWS_BUCKET, Key: `${req.params.key}` };
+  s3.getSignedUrl("getObject", params, (err, url) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    res.send(url);
+  });
+});
 
 //server listening at port 5000
 
