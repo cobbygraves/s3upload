@@ -14,7 +14,7 @@ server.use(express.urlencoded({ limit: "200mb", extended: true }));
 server.use(cors());
 
 //route goes here
-server.use("/gallery", galleryRoute);
+// server.use("/gallery", galleryRoute);
 
 server.use(express.static(path.join(__dirname, "client", "build")));
 
