@@ -14,13 +14,8 @@ server.use(express.urlencoded({ limit: "200mb", extended: true }));
 server.use(cors());
 
 //route goes here
+
 // server.use("/gallery", galleryRoute);
-
-server.use(express.static(path.join(__dirname, "client", "build")));
-
-server.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-});
 
 //server listening at port 5000
 
